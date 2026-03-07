@@ -2,19 +2,19 @@ public class WasteManagementDemo {
     public static void main(String[] args) {
         WasteManagementSystem wasteManagement = new WasteManagementSystem();
 
-        WasteContainer organicContainer = new WasteContainer("organic", 20);
-        WasteContainer recyclableContainer = new WasteContainer("recyclable", 20);
-        WasteContainer hazardousContainer = new WasteContainer("hazardous", 10);
+        WasteContainer organic = new WasteContainer("organic", 20);
+        WasteContainer recyclable = new WasteContainer("recyclable", 20);
+        WasteContainer hazardous = new WasteContainer("hazardous", 10);
         
-        organicContainer.addWaste(25);
-        wasteManagement.collect(organicContainer);
+        organic.addWaste(25);
+        wasteManagement.collect(organic);
         
-        recyclableContainer.addWaste(15);
-        wasteManagement.collect(recyclableContainer);
+        recyclable.addWaste(15);
+        wasteManagement.collect(recyclable);
 
-        hazardousContainer.addWaste(5);
-        wasteManagement.collect(hazardousContainer);
+        hazardous.addWaste(5);
+        wasteManagement.collect(hazardous);
 
-        wasteManagement.collect(organicContainer);
+        wasteManagement.collect(organic);
     }
 }
