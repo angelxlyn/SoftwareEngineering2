@@ -1,4 +1,4 @@
-public class Book implements LibraryResource, Borrowable {
+public class Book implements Borrowable {
     private String title;
     private boolean available;
     
