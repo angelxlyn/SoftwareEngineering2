@@ -1,4 +1,4 @@
-public class Capstone implements LibraryResource, Borrowable {
+public class Capstone implements Borrowable {
     private String title;
     private boolean available;
     

@@ -1,4 +1,4 @@
-public class Thesis implements LibraryResource, Borrowable {
+public class Thesis implements Borrowable {
     private String title;
     private boolean available;
     

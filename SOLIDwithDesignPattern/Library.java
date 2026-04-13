@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Library {
     private String name;
@@ -25,37 +26,16 @@ public class Library {
             System.out.println("No resources available.");
         } else {
             for (LibraryResource resource : resources) {
-                String borrowableStatus = (resource instanceof Borrowable) ? 
-                    ( ((Borrowable)resource).isAvailable() ? "✓ Available" : "✗ Checked Out") : 
-                    "Reference Only";
-                System.out.println("[" + resource.getResourceType() + "] " + resource.getTitle() + 
-                    " - " + borrowableStatus);
+                String status;
+                if (resource instanceof Borrowable) {
+                    status = ((Borrowable)resource).isAvailable() ? "✓ Available" : "✗ Checked Out";
+                } else {
+                    status = "Reference Only";
+                }
+                System.out.println("[" + resource.getResourceType() + "] " + resource.getTitle() + " - " + status);
             }
         }
         System.out.println();
-    }
-    
-    public List<LibraryResource> getResourcesByType(String type) {
-        List<LibraryResource> result = new ArrayList<>();
-        for (LibraryResource resource : resources) {
-            if (resource.getResourceType().equalsIgnoreCase(type)) {
-                result.add(resource);
-            }
-        }
-        return result;
-    }
-    
-    public List<LibraryResource> getAvailableBorrowableResources() {
-        List<LibraryResource> result = new ArrayList<>();
-        for (LibraryResource resource : resources) {
-            if (resource instanceof Borrowable) {
-                Borrowable borrowable = (Borrowable) resource;
-                if (borrowable.isAvailable()) {
-                    result.add(resource);
-                }
-            }
-        }
-        return result;
     }
     
     public List<LibraryResource> getResources() {

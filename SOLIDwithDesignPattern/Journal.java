@@ -1,4 +1,4 @@
-public class Journal implements LibraryResource, Borrowable {
+public class Journal implements Borrowable {
     private String title;
     private boolean available;
     
