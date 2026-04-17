@@ -17,4 +17,4 @@ Type: Spreadsheet, Name: sales_data_q1.xlsx, Rows: 1000, Columns: 20
 Opening PDF Document: summary_report.pdf by Acme Corp (30 pages)
 
 ## UML Diagram
-![UML Diagram](UML%20Diagram.png)
+![UML Diagram](UML%20Diagram.jpg)
