@@ -1,27 +1,32 @@
-public class TextDocument implements Document {
+public class TextDocument implements Document, java.lang.Cloneable {
     private String filePath;
     private String encoding;
     private int wordCount;
-
-    public TextDocument() {
-        this.filePath = "default.txt";
-        this.encoding = "UTF-8";
-        this.wordCount = 0;
-    }
 
     public TextDocument(String filePath, String encoding, int wordCount) {
         this.filePath = filePath;
         this.encoding = encoding;
         this.wordCount = wordCount;
+        System.out.println("Creating a Text Document prototype.");
     }
 
+    public String getFilePath() { return filePath; }
     public void setFilePath(String filePath) { this.filePath = filePath; }
+
+    public String getEncoding() { return encoding; }
     public void setEncoding(String encoding) { this.encoding = encoding; }
+
+    public int getWordCount() { return wordCount; }
     public void setWordCount(int wordCount) { this.wordCount = wordCount; }
 
     @Override
     public TextDocument clone() {
-        return new TextDocument(this.filePath, this.encoding, this.wordCount);
+        try {
+            return (TextDocument) super.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println("Cloning not supported!");
+            return null;
+        }
     }
 
     @Override

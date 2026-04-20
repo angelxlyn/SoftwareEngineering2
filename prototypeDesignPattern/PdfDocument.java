@@ -1,30 +1,32 @@
-public class PdfDocument implements Document {
+public class PdfDocument implements Document, java.lang.Cloneable {
     private String fileName;
     private String author;
     private int pageCount;
-
-    public PdfDocument() {
-        this.fileName = "default.pdf";
-        this.author = "Unknown";
-        this.pageCount = 0;
-    }
 
     public PdfDocument(String fileName, String author, int pageCount) {
         this.fileName = fileName;
         this.author = author;
         this.pageCount = pageCount;
+        System.out.println("Creating a PDF Document prototype.");
     }
 
-    public void setFileName(String fileName) { this.fileName = fileName; }
-    public void setAuthor(String author) { this.author = author; }
-    public void setPageCount(int pageCount) { this.pageCount = pageCount; }
     public String getFileName() { return fileName; }
+    public void setFileName(String fileName) { this.fileName = fileName; }
+
     public String getAuthor() { return author; }
+    public void setAuthor(String author) { this.author = author; }
+
     public int getPageCount() { return pageCount; }
+    public void setPageCount(int pageCount) { this.pageCount = pageCount; }
 
     @Override
     public PdfDocument clone() {
-        return new PdfDocument(this.fileName, this.author, this.pageCount);
+        try {
+            return (PdfDocument) super.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println("Cloning not supported!");
+            return null;
+        }
     }
 
     @Override
